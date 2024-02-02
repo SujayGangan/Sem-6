@@ -13,10 +13,12 @@ public class PlayFair {
         String text = "welcome";
         int check;
 
+
         // inserting 'key' in arraylist
         for (int i = 0 ; i < key.length() ; i++){
             toInsert.add(key.charAt(i));
         }
+
 
         // inserting plaintext in arraylist
         for (int i = 0 ; i < text.length() ; i++){
@@ -26,6 +28,7 @@ public class PlayFair {
             plainText.add('x');
         }
 
+
         // inserting alphabets in arraylist before matrix
         for (int i = 0; i < str.length(); i++) {
             alpha.add(str.charAt(i));
@@ -33,6 +36,7 @@ public class PlayFair {
 
         System.out.println(toInsert);
         System.out.println(alpha);
+
 
         // creating final arraylist before generating matrix
         for (int i = 0; i < alpha.size() ; i++) {
@@ -45,6 +49,7 @@ public class PlayFair {
         }
 
         System.out.println(toInsert);
+
 
         // Generating matrix
         for(int i=0 ; i<5 ; i++){
@@ -64,7 +69,7 @@ public class PlayFair {
         }
 
         // System.out.println("\n" + plainText);
-
+        
         makePairOfTwo(plainText);
 
 
@@ -74,11 +79,31 @@ public class PlayFair {
     public static void makePairOfTwo(ArrayList<Character> plainText){
         int plainTextPairsCount = plainText.size()/2;
         System.out.println("\nNumber of pairs of plaintext = " + plainTextPairsCount);
-        
-        
+        int ch1, ch2;
+
         for(int i = 0 ; i < plainTextPairsCount ; i++){
-            
+            ch1 = plainText.getFirst();
+            plainText.removeFirst();
+            ch2 = plainText.getFirst();
+            plainText.removeFirst();
+
         }
+
+    }
+
+
+    public static void checkPosition(){
+        if (inSameRow() == 1) {
+            
+
+        } else if (inSameColumn() == 1) {
+            
+
+        } else if (inDiagonal() == 1){
+
+
+        }
+
 
     }
 
