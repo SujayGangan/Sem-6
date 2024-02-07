@@ -15,6 +15,7 @@ class HillCipher {
     private static int[][] keyMatrix = new int[3][3];
     private static int[] msgMatrix = new int[3];
     private static int[] matrix = new int[3];
+    private static int[] modMatrix = new int[3];
 
     public static void main(String[] args) {
 
@@ -40,6 +41,11 @@ class HillCipher {
         
         int numberOfPairs = message.size() / 3;
 
+        for (int i = 0; i < numberOfPairs; i++) {
+            
+
+            
+        }
         
 
 
@@ -112,6 +118,19 @@ class HillCipher {
         System.out.println("Final matrix : ");
         for (int i = 0; i < matrix.length; i++) {
             System.out.println(matrix[i]);
+        }
+
+
+        System.out.println("Final matrix after mod 26: ");
+        for (int i = 0; i < matrix.length; i++) {
+            modMatrix[i] = matrix[i] % 26;
+        }
+        
+
+        System.out.println();
+        System.out.println("Cipher text is: ");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(alphabets.get(modMatrix[i]));
         }
 
     }
