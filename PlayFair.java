@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class PlayFair {
@@ -11,9 +12,14 @@ public class PlayFair {
     public static void main(String[] args) {
         String str = "abcdefghiklmnopqrstuvwxyz";
         String key = "monarchy";
-        String text = "welcome";
+        // String text = "welcome" ;
+        String text;
         int check;
 
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text to encrypt: ");
+        text = sc.nextLine();
+        sc.close();
 
         // inserting 'key' in arraylist
         for (int i = 0 ; i < key.length() ; i++){
@@ -105,6 +111,7 @@ public class PlayFair {
         }
 
     }
+
 
     public static void getCoordinates(Character ch1, Character ch2){
         int ch1Row = 0, ch1Col=0, ch2Row=0, ch2Col=0;
