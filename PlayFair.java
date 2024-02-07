@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 
 public class PlayFair {
-    static char[][] matrix = new char[5][5];
-    static ArrayList<Character> toInsert = new ArrayList<>();
-    static ArrayList<Character> alpha = new ArrayList<>();
-    static ArrayList<Character> plainText = new ArrayList<>(); 
-    static ArrayList<Character> cipherText = new ArrayList<>();
+    private static char[][] matrix = new char[5][5];
+    private static ArrayList<Character> toInsert = new ArrayList<>();
+    private static ArrayList<Character> alpha = new ArrayList<>();
+    private static ArrayList<Character> plainText = new ArrayList<>(); 
+    private static ArrayList<Character> cipherText = new ArrayList<>();
 
     public static void main(String[] args) {
         String str = "abcdefghiklmnopqrstuvwxyz";
