@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.lang.Exception;
 
 class HillCipher {
     private static ArrayList<Character> alphabets = new ArrayList<>();
@@ -15,6 +14,7 @@ class HillCipher {
 
     private static int[][] keyMatrix = new int[3][3];
     private static int[] msgMatrix = new int[3];
+    private static int[] matrix = new int[3];
 
     public static void main(String[] args) {
 
@@ -31,6 +31,8 @@ class HillCipher {
         }
 
         matrixGeneration();
+
+
 
         
         
@@ -64,7 +66,7 @@ class HillCipher {
         }
         System.out.println();
 
-        System.out.println("Key matrix : ");
+        // Key matrix
         for(int i=0 ; i<3 ; i++){
             for (int j = 0; j <3 ; j++) {
                 keyMatrix[i][j] = keyMatrixNum.get(count);
@@ -72,14 +74,26 @@ class HillCipher {
             }
         }
 
-        // Key matrix
+        System.out.println("Key matrix : ");
         for(int i=0 ; i<3 ; i++){
             for (int j=0; j<3 ; j++) {
                 System.out.print("  " + keyMatrix[i][j] + " ");
             }
             System.out.println();
         }
-        
+        System.out.println();
+
+
+        // Final Matrix generation
+        for (int i = 0; i < 3; i++) {
+            matrix[i] = (keyMatrix[i][0] * msgMatrix[0])  
+                        + (keyMatrix[i][1] * msgMatrix[1])  
+                        + (keyMatrix[i][2] * msgMatrix[2]) ; 
+        }
+        System.out.println("Final matrix : ");
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println(matrix[i]);
+        }
 
     }
 }
