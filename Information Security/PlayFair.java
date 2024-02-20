@@ -1,28 +1,24 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 
 public class PlayFair {
-    private static char[][] matrix = new char[5][5];
-    private static ArrayList<Character> toInsert = new ArrayList<>();
-    private static ArrayList<Character> alpha = new ArrayList<>();
-    private static ArrayList<Character> plainText = new ArrayList<>(); 
-    private static ArrayList<Character> cipherText = new ArrayList<>();
+    static char[][] matrix = new char[5][5];
+    static ArrayList<Character> toInsert = new ArrayList<>();
+    static ArrayList<Character> alpha = new ArrayList<>();
+    static ArrayList<Character> plainText = new ArrayList<>(); 
+    static ArrayList<Character> cipherText = new ArrayList<>();
 
     public static void main(String[] args) {
         String str = "abcdefghiklmnopqrstuvwxyz";
-        String key = "monarchy";
-        // String text = "welcome" ;
-        String text;
+        String key = "secret";
+        String text = "sanfoundry";
         int check;
 
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter text to encrypt: ");
-        text = sc.nextLine();
-        sc.close();
 
         // inserting 'key' in arraylist
         for (int i = 0 ; i < key.length() ; i++){
+            if(toInsert.contains(key.charAt(i)))
+                continue;
             toInsert.add(key.charAt(i));
         }
 
@@ -80,11 +76,12 @@ public class PlayFair {
         makePairOfTwo();
 
         System.out.println("\n\t Cipher Text: " + cipherText);
-        System.out.println("\n\n");
+        System.out.println("\n");
 
     }
 
 
+    // Function to check whether the character is already present in matrix or not
     public static int isAlreadyInMatrix(char ch){
         if(toInsert.contains(ch))
             return 0;
@@ -93,6 +90,7 @@ public class PlayFair {
     }
 
 
+    // Function to create the pairs of letters in plain text
     public static void makePairOfTwo(){
         int plainTextPairsCount = plainText.size()/2;
         System.out.println("\nNumber of pairs formed in plaintext = " + plainTextPairsCount);
@@ -113,6 +111,7 @@ public class PlayFair {
     }
 
 
+    // Function to get coordinates of the characters in matrix
     public static void getCoordinates(Character ch1, Character ch2){
         int ch1Row = 0, ch1Col=0, ch2Row=0, ch2Col=0;
 
@@ -130,11 +129,11 @@ public class PlayFair {
         }
 
 
-        if (ch1Row == ch2Row){                                  // Condition for same row
+        if (ch1Row == ch2Row){                                          // Condition for same row
             inSameRow(ch1Row, ch1Col, ch2Row, ch2Col);
-        } else if (ch1Col == ch2Col) {                                // Condition for same column
+        } else if (ch1Col == ch2Col) {                                  // Condition for same column
             inSameColumn(ch1Row, ch1Col, ch2Row, ch2Col);
-        } else {
+        } else {                                                        // Condition for diagonal elements
             inDiagonal(ch1Row, ch1Col, ch2Row, ch2Col);
         }
 
@@ -169,5 +168,5 @@ public class PlayFair {
         cipherText.add(matrix[c1Row][c1Col]);
         cipherText.add(matrix[c2Row][c2Col]);
     }
-    
+
 }
